@@ -4,6 +4,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 	
+	private static final Class<?>[] NO_FILES = null;
+
 	@Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[] { AppConfig.class };
@@ -12,7 +14,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     @Override
     protected Class<?>[] getServletConfigClasses() {
     	
-        return null;
+    	return NO_FILES;
     }
   
     @Override
