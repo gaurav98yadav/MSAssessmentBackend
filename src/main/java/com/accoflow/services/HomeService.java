@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.accoflow.dao.HomeDAO;
+import com.accoflow.dto.Scorecard;
 import com.accoflow.models.Grad;
 
 @Service
@@ -20,5 +21,9 @@ public class HomeService {
 	    }
 	    return grads;
    }
-   
+public Scorecard profile(int id) {
+	
+	Scorecard sc = homeDAO.profile(id);
+	return sc;
+}
 }

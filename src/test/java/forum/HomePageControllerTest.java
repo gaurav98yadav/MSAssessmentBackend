@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.accoflow.controller.HomePageController;
+import com.accoflow.dto.Scorecard;
 import com.accoflow.models.Grad;
 import com.accoflow.services.HomeService;
 
@@ -41,6 +42,13 @@ public class HomePageControllerTest {
 		
 		Assert.assertEquals(homeService.displayGrads(),list);
 		
+	}
+	@Test
+	public void profile()
+	{
+		Scorecard sc = new Scorecard();
+		when(homeDAO.profile(1)).thenReturn(sc);
+		Assert.assertEquals(sc, homeService.profile(1));
 	}
 
 }

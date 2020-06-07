@@ -33,6 +33,7 @@ public class Queries {
 	public static final String INSERT_TRAINER = "insert into trainer_details(trainer_name,trainer_email,trainer_photo) values(?,?,?)";
 	public static final String FETCH_TRAINER_ID = "select trainer_id from trainer_details where trainer_details.trainer_email=?"; 
 	public static final String GET_FILES = "Select * from training_material";
-
+	public static final String FETCH_SCORECARD = "Select course,assessment_type,final_marks,test_name from assessment_details where grad_id=?";
+	public static final String FETCH_STUDENT = "SELECT * FROM grad_details,student_marks where grad_details.grad_id=student_marks.grad_id and grad_details.grad_id =?";
 }
 

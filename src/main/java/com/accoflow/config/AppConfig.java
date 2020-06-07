@@ -26,16 +26,6 @@ public class AppConfig {
 	@Autowired
 	Environment environment; 
 	@Bean
-	DataSource dataSource() {
-		
-		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/msassignment?useSSL=false");
-		driverManagerDataSource.setUsername(environment.getProperty(USER));
-		driverManagerDataSource.setPassword(environment.getProperty(PASS));
-		driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));
-		return driverManagerDataSource;
-	}
-	@Bean
 	JdbcTemplate jdbcTemplate() {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/msassignment?useSSL=false");

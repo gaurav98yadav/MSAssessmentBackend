@@ -2,6 +2,7 @@ package forum;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -18,8 +19,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.accoflow.constants.Queries;
 import com.accoflow.dao.HomeDAO;
+import com.accoflow.dto.Scorecard;
+import com.accoflow.models.Assessment;
 import com.accoflow.models.Grad;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -56,6 +58,27 @@ public class HomeDAOTest {
 		when(jdbcTemplate.query(anyString(),any(RowMapper.class))).thenReturn(list);
 		System.out.println(homeDAO.displayGrads());
 		Assert.assertEquals(list,homeDAO.displayGrads());
+	}
+	@SuppressWarnings("unchecked")
+	@Test
+	public void profile()
+	{
+		Scorecard sc = new Scorecard();
+		Grad grad = new Grad();
+		List<Grad> list1 = new ArrayList<>();
+		list1.add(grad);
+		Grad grad2=list1.get(0);
+		grad2.setTotal_marks(20);
+		Assessment asssessment = new Assessment();
+		List<Assessment> list2 = new ArrayList<>();
+		list2.add(asssessment);
+		when(jdbcTemplate.query(anyString(),new Object[] {anyInt()},any(RowMapper.class))).thenReturn(list1);
+		when(jdbcTemplate.query(anyString(),new Object[] {anyInt()},any(RowMapper.class))).thenReturn(list2);
+		sc.setGrad(grad);
+		sc.setAssessments(list2);
+		Assert.assertEquals(sc,homeDAO.profile(1));
+
+
 	}
 
 }
