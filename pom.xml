@@ -11,7 +11,7 @@
 		<java.version>13</java.version>
 		<spring.version>4.3.0.RELEASE</spring.version>
 		<jackson.version>2.5.3</jackson.version>
-		<postgres.version>42.1.4</postgres.version>
+		<postgres.version>42.4.1</postgres.version>
 		<cglib.version>2.2.2</cglib.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>13</maven.compiler.source>
